@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wppixel" translate="label" sortOrder="200">
+            <label>WP</label>
+        </tab>
+        <section id="wp_pixel" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>WP Pixel</label>
+            <tab>wppixel</tab>
+            <resource>WP_Pixel::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Disables adding every tracking codes</comment>
+                </field>
+                <field id="wp_pixel_id" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>WP Pixel Id</label>
+                    <validate>required-entry</validate>
+                    <comment>Client identifier</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="view_tracking_enabled" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>View Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking of page view</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="view_product_tracking_enabled" translate="label" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>View Product Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking in product view</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_list_tracking_enabled" translate="label" type="select" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product List Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking in the product list view</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="add_to_cart_tracking_enabled" translate="label" type="select" sortOrder="600" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add To Cart Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking of products added to the cart</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="purchase_tracking_enabled" translate="label" type="select" sortOrder="700" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Purchase Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking of purchase</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="register_form_tracking_enabled" translate="label" type="select" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Register Form Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking of register form</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="login_tracking_enabled" translate="label" type="select" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Login Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking of login</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="contact_form_tracking_enabled" translate="label" type="select" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Form Tracking Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable tracking contact form</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="ean_attribute_code" translate="label" type="select" sortOrder="1100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>EAN Attribute</label>
+                    <source_model>WP\Pixel\Model\Config\Source\ProductVarcharAttributes</source_model>
+                    <comment>Select the product attribute that stores the EAN code (Catalog Input Type should be: Text Field)</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="size_attributes_ids" translate="label" type="multiselect" sortOrder="1100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Size Attributes</label>
+                    <source_model>WP\Pixel\Model\Config\Source\ProductAttributes</source_model>
+                    <comment>Select size attributes (used in the sizes field)</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

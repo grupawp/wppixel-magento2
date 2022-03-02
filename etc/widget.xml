@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="pixel_tracking" class="WP\Pixel\Block\Widget\Page\Pixel">
+        <label translate="true">WP Pixel</label>
+        <description translate="true">Wp Pixel tracking code</description>
+        <parameters>
+            <parameter name="content_name" xsi:type="text" required="true">
+                <label translate="true">Content Name</label>
+                <value translate="true">LandingPage</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default_template" value="widget/pixel.phtml">
+                        <label translate="true">Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

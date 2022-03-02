@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.view.product"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::default.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\ViewProduct</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

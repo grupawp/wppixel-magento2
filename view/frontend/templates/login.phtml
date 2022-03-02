@@ -1,0 +1,18 @@
+<?php
+    /** @var \WP\Pixel\ViewModel\Login $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+
+<?php if ($viewModel->isEnabled()): ?>
+    <script>
+        require([
+            'jquery'
+        ], function ($) {
+            $.get('/rest/V1/pixel/is-after-sign-in', function (response) {
+                if (response) {
+                    wph('track', '<?php echo $viewModel->getTrackName(); ?>', {'content_name': '<?php echo $viewModel->getContentName(); ?>'})
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

@@ -1,0 +1,20 @@
+<?php
+    /** @var \WP\Pixel\ViewModel\AddToCart $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+
+<?php if ($viewModel->isEnabled()): ?>
+    <script>
+        require([
+            'jquery',
+            'underscore'
+        ], function ($, _) {
+            $(document).on('ajax:addToCart', function (event, data) {
+                $.getJSON('/rest/V1/pixel/product/add-to-cart-content', function (response) {
+                        wph('track', '<?php echo $viewModel->getTrackName(); ?>', {contents: [JSON.parse(response)]});
+                    }
+                );
+            });
+        });
+    </script>
+<?php endif; ?>

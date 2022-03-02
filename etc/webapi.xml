@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/pixel/product/add-to-cart-content" method="GET">
+        <service class="WP\Pixel\Api\ContentRepositoryInterface" method="getAddToCartProductContent"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/pixel/is-after-sign-in" method="GET">
+        <service class="WP\Pixel\Api\ContentRepositoryInterface" method="isAfterSignIn"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.head"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::head.phtml">
+                  <arguments>
+                      <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\Head</argument>
+                  </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.view"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::view.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\View</argument>
+                </arguments>
+            </block>
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.add.to.cart"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::add_to_cart.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\AddToCart</argument>
+                </arguments>
+            </block>
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.login"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::login.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\Login</argument>
+                </arguments>
+            </block>
+            <block ifconfig="wp_pixel/general/enabled"
+                   name="wp.pixel.cookie.restriction"
+                   before="-"
+                   class="Magento\Backend\Block\Template"
+                   template="WP_Pixel::cookie_restriction.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">WP\Pixel\ViewModel\CookieRestriction</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

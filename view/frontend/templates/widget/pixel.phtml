@@ -1,0 +1,7 @@
+<?php
+/** @var \WP\Pixel\Block\Widget\Page\Pixel $block */
+?>
+
+<script>
+    wph('track', '<?php echo $block->getTrackName(); ?>', {'content_name': '<?php echo $block->getContentName(); ?>'})
+</script>

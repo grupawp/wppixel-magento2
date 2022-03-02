@@ -1,0 +1,13 @@
+<?php
+    /** @var \WP\Pixel\ViewModel\Head $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+
+<script>
+    !function(d,m,e,v,n,t,s){d['WphTrackObject'] = n;
+    d[n] = window[n] || function() {(d[n].queue=d[n].queue||[]).push(arguments)},
+    d[n].l = 1 * new Date(), t=m.createElement(e), s=m.getElementsByTagName(e)[0],
+    t.async=1;t.src=v;s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://pixel.wp.pl/w/tr.js', 'wph');
+    wph('init', '<?php echo $viewModel->getWPPixelId(); ?>');
+</script>

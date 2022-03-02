@@ -1,0 +1,13 @@
+<?php
+    /** @var \WP\Pixel\ViewModel\AbstractTrack $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+
+<?php if ($viewModel->isEnabled()): ?>
+<script>
+    wph('track', '<?php echo $viewModel->getTrackName(); ?>', {
+        'content_name': '<?php echo $viewModel->getContentName(); ?>',
+        contents: [<?php echo $viewModel->getContents(); ?>]
+    });
+</script>
+<?php endif; ?>

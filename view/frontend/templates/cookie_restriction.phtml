@@ -1,0 +1,16 @@
+<?php
+    /** @var \WP\Pixel\ViewModel\CookieRestriction $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+
+<?php if ($viewModel->isEnabled()): ?>
+    <script>
+        require([
+            'jquery'
+        ], function ($) {
+            $(document).on('user:allowed:save:cookie', function () {
+                wph('consent', 'grant')
+            });
+        });
+    </script>
+<?php endif; ?>
